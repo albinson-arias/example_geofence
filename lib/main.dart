@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geofence_service/geofence_service.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:geofence_service_example/notifications_debouncer.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -23,6 +24,7 @@ class ExampleApp extends StatefulWidget {
 class _ExampleAppState extends State<ExampleApp> {
   final _activityStreamController = StreamController<Activity>();
   final _geofenceStreamController = StreamController<Geofence>();
+  final _geofenceNotification = GeofenceNotificationDebouncer(seconds: 15);
 
   // Create a [GeofenceService] instance and set options.
   final _geofenceService = GeofenceService.instance.setup(
@@ -96,7 +98,7 @@ class _ExampleAppState extends State<ExampleApp> {
     _geofenceStreamController.sink.add(geofence);
 
     if (geofenceStatus == GeofenceStatus.ENTER) {
-      showNotificationAndroid(geofence.id, geofence.data);
+      _geofenceNotification.add(geofence);
     }
   }
 
@@ -182,6 +184,7 @@ class _ExampleAppState extends State<ExampleApp> {
   void dispose() {
     _activityStreamController.close();
     _geofenceStreamController.close();
+    _geofenceNotification.dispose();
     super.dispose();
   }
 
@@ -259,25 +262,4 @@ class LocalNotificationService {
       initializationSettings,
     );
   }
-}
-
-void showNotificationAndroid(String title, String value) async {
-  const AndroidNotificationDetails androidNotificationDetails =
-      AndroidNotificationDetails('channel_id', 'Channel Name',
-          channelDescription: 'Channel Description',
-          importance: Importance.max,
-          priority: Priority.high,
-          ticker: 'ticker');
-
-  int notificationId = 1;
-  const NotificationDetails notificationDetails =
-      NotificationDetails(android: androidNotificationDetails);
-
-  await flutterLocalNotificationsPlugin.show(
-    notificationId,
-    title,
-    value,
-    notificationDetails,
-    payload: 'Not present',
-  );
 }
