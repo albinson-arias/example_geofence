@@ -1,0 +1,53 @@
+PODS:
+  - fl_location (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_activity_recognition (0.0.1):
+    - Flutter
+  - flutter_foreground_task (0.0.1):
+    - Flutter
+  - flutter_local_notifications (0.0.1):
+    - Flutter
+  - geofence_service (0.0.1):
+    - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - fl_location (from `.symlinks/plugins/fl_location/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_activity_recognition (from `.symlinks/plugins/flutter_activity_recognition/ios`)
+  - flutter_foreground_task (from `.symlinks/plugins/flutter_foreground_task/ios`)
+  - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
+  - geofence_service (from `.symlinks/plugins/geofence_service/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+
+EXTERNAL SOURCES:
+  fl_location:
+    :path: ".symlinks/plugins/fl_location/ios"
+  Flutter:
+    :path: Flutter
+  flutter_activity_recognition:
+    :path: ".symlinks/plugins/flutter_activity_recognition/ios"
+  flutter_foreground_task:
+    :path: ".symlinks/plugins/flutter_foreground_task/ios"
+  flutter_local_notifications:
+    :path: ".symlinks/plugins/flutter_local_notifications/ios"
+  geofence_service:
+    :path: ".symlinks/plugins/geofence_service/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+
+SPEC CHECKSUMS:
+  fl_location: 68b4a6c4aad2a453493ff66f196e0748280cf43e
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_activity_recognition: 5c3b026997742b01e82424ef257db9640822ad77
+  flutter_foreground_task: 21ef182ab0a29a3005cc72cd70e5f45cb7f7f817
+  flutter_local_notifications: 4cde75091f6327eb8517fa068a0a5950212d2086
+  geofence_service: e007ddec3cf8b85531e8f7b202c1ceabca669d64
+  shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
+
+PODFILE CHECKSUM: c4c93c5f6502fe2754f48404d3594bf779584011
+
+COCOAPODS: 1.14.3
